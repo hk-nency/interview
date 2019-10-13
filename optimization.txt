@@ -98,4 +98,13 @@ Enable module concatenation
 Use externals if this makes sense for you
 
 
+Summing up:
+
+Cut unnecessary bytes. Compress everything, strip unused code, be wise when adding dependencies
+
+Split code by routes. Load only what’s really necessary right now and lazy-load other stuff later
+
+Cache code. Some parts of your app are updated less often than other ones. Separate these parts into files so that they are only re-downloaded when necessary
+
+Keep track of the size. Use tools like webpack-dashboard and webpack-bundle-analyzer to stay aware how large is your app. Take a fresh look at your app’s performance at whole every few months
 
