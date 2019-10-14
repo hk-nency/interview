@@ -108,3 +108,21 @@ Cache code. Some parts of your app are updated less often than other ones. Separ
 
 Keep track of the size. Use tools like webpack-dashboard and webpack-bundle-analyzer to stay aware how large is your app. Take a fresh look at your app’s performance at whole every few months
 
+
+
+
+
+HTTP2
+
+Main goals of developing HTTP/2 was:
+
+1. Request multiplexing
+HTTP/2 can send multiple requests for data in parallel over a single TCP connection. This is the most advanced feature of the HTTP/2 protocol because it allows you to download web files asynchronously from one server. Most modern browsers limit TCP connections to one server.
+
+2.Header compression
+
+3.HTTP/2 Server Push
+This capability allows the server to send additional cacheable information to the client that isn’t requested but is anticipated in future requests. For example, if the client requests for the resource X and it is understood that the resource Y is referenced with the requested file, the server can choose to push Y along with X instead of waiting for an appropriate client request.
+
+4. Binary Protocol
+The latest HTTP version has evolved significantly in terms of capabilities and attributes such as transforming from a text protocol to a binary protocol. HTTP1.x used to process text commands to complete request-response cycles. HTTP/2 will use binary commands (in 1s and 0s) to execute the same tasks. This attribute eases complications with framing and simplifies implementation of commands that were confusingly intermixed due to commands containing text and optional spaces.
