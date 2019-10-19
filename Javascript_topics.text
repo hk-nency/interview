@@ -235,3 +235,37 @@ promise.then(function (value) {
 // promise.then(function () {
 //     console.log("bye")
 // })
+
+
+
+
+
+
+
+
+#Genrator Functions
+
+A generator is a function that can stop midway and then continue from where it stopped
+
+function * generatorFunction() { // Line 1
+  console.log('This will be executed first.');
+  yield 'Hello, ';   // Line 2
+  console.log('I will be printed after the pause');  
+  yield 'World!';
+}
+const generatorObject = generatorFunction(); // Line 3
+console.log(generatorObject.next().value); // Line 4
+console.log(generatorObject.next().value); // Line 5
+console.log(generatorObject.next().value); // Line 6
+// This will be executed first.
+// Hello, 
+// I will be printed after the pause
+// World!
+// undefined
+
+In JavaScript, a generator is a function which returns an object on which you can call next(). Every invocation of next() will return an object of shape —
+{ 
+  value: Any,
+  done: true|false
+} 
+The value property will contain the value. The done property is either true or false. When the done becomes true, the generator stops and won’t generate any more values.
