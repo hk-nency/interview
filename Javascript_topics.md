@@ -13,15 +13,25 @@ Promises are the ideal choice for handling asynchronous operations in the simple
 Benefits of Promises
 
 Improves Code Readability
+
 Better handling of asynchronous operations
+
 Better flow of control definition in asynchronous logic
+
 Better Error Handling
+
 A Promise has four states:
+
 fulfilled: Action related to the promise succeeded
+
 rejected: Action related to the promise failed
+
 pending: Promise is still pending i.e not fulfilled or rejected yet
+
 settled: Promise has fulfilled or rejected
+
 A promise can be created using Promise constructor.
+
 Syntax
 
 var promise = new Promise(function(resolve, reject){
@@ -269,3 +279,12 @@ In JavaScript, a generator is a function which returns an object on which you ca
   done: true|false
 } 
 The value property will contain the value. The done property is either true or false. When the done becomes true, the generator stops and won’t generate any more values.
+
+
+
+#----------------_Async And Await
+
+JavaScript async/await is a relatively new way to handle asynchronous operations in JavaScript. It gives you power new to make your code shorter and more understandable.
+
+Before async/await, callbacks and promises were used to handle asynchronous calls in JavaScript. Everyone who learns JavaScript has heard about the so-called callback hell.  However, I won’t be writing about this because callbacks aren’t the main focus of this post.
+
