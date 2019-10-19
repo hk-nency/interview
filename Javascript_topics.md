@@ -11,6 +11,7 @@ Promises are the ideal choice for handling asynchronous operations in the simple
 
 
 Benefits of Promises
+
 Improves Code Readability
 Better handling of asynchronous operations
 Better flow of control definition in asynchronous logic
