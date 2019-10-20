@@ -195,15 +195,18 @@ Problem with the prototype: Modifying a property using one object reflects the o
 To solve both problems, we can define all the object-specific properties inside the constructor and all shared properties and methods inside the prototype as shown below:
 
 //Define the object specific properties inside the constructor
+
 function Human(name, age){
 	this.name = name,
 	this.age = age,
 	this.friends = ["Jadeja", "Vijay"]
 }
+
 //Define the shared properties and methods using the prototype
 Human.prototype.sayName = function(){
 	console.log(this.name);
 }
+
 //Create two objects using the Human constructor function
 var person1 = new Human("Virat", 31);
 var person2 = new Human("Sachin", 40);
