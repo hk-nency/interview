@@ -126,3 +126,53 @@ This capability allows the server to send additional cacheable information to th
 
 4. Binary Protocol
 The latest HTTP version has evolved significantly in terms of capabilities and attributes such as transforming from a text protocol to a binary protocol. HTTP1.x used to process text commands to complete request-response cycles. HTTP/2 will use binary commands (in 1s and 0s) to execute the same tasks. This attribute eases complications with framing and simplifies implementation of commands that were confusingly intermixed due to commands containing text and optional spaces.
+
+
+
+
+Virtual DOM VS REAL DOM--------
+
+Your browser does a lot of work to update the DOM. Changing the DOM can trigger reflows and repaints; when one thing changes, the browser has to re-calculate the position of other elements in the flow of the page, and also has to do work re-drawing.
+
+The browser has its own internal optimization to reduce the impact of DOM changes (e.g. doing repaints on the GPU, isolating some repaints on their own layers, etc), but broadly speaking, changing a few things can trigger expensive reflows and repaints.
+
+It's common even when writing everything from scratch to build UI off the DOM, then insert it all at once (e.g. document.createElement a div and insert a whole tree under it for attaching to the main DOM), but React is engineered to watch changes and intelligently update small parts of the DOM to minimize the impact of reflows and repaints. It goes much further than what you might typically build manually.
+
+
+What is DOM reflow?
+
+A reflow computes the layout of the page. A reflow on an element recomputes the dimensions and position of the element, and it also triggers further reflows on that element’s children, ancestors and elements that appear after it in the DOM. Then it calls a final repaint. Reflowing is very expensive, but unfortunately it can be triggered easily.
+
+Reflow occurs when you:
+
+insert, remove or update an element in the DOM
+
+modify content on the page, e.g. the text in an input box
+
+
+move a DOM element
+
+animate a DOM element
+
+take measurements of an element such as offsetHeight or getComputedStyle
+
+change a CSS style
+
+change the className of an element
+
+add or remove a stylesheet
+
+resize the window
+
+scroll
+
+
+Virtual dom doesnot speed our initial render , its only fast the updating the dom.
+
+
+
+When new elements are added to the UI, a virtual DOM, which is represented as a tree is created. Each element is a node on this tree. If the state of any of these elements changes, a new virtual DOM tree is created. This tree is then compared or “diffed” with the previous virtual DOM tree.
+
+Once this is done, the virtual DOM calculates the best possible method to make these changes to the real DOM. This ensures that there are minimal operations on the real DOM. Hence, reducing the performance cost of updating the real DOM.
+
+
