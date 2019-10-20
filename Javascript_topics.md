@@ -258,15 +258,25 @@ promise.then(function (value) {
 A generator is a function that can stop midway and then continue from where it stopped
 
 function * generatorFunction() { // Line 1
+
   console.log('This will be executed first.');
+  
   yield 'Hello, ';   // Line 2
-  console.log('I will be printed after the pause');  
+  
+  console.log('I will be printed after the pause'); 
+  
   yield 'World!';
+  
 }
+
 const generatorObject = generatorFunction(); // Line 3
+
 console.log(generatorObject.next().value); // Line 4
+
 console.log(generatorObject.next().value); // Line 5
+
 console.log(generatorObject.next().value); // Line 6
+
 // This will be executed first.
 // Hello, 
 // I will be printed after the pause
@@ -287,4 +297,25 @@ The value property will contain the value. The done property is either true or f
 JavaScript async/await is a relatively new way to handle asynchronous operations in JavaScript. It gives you power new to make your code shorter and more understandable.
 
 Before async/await, callbacks and promises were used to handle asynchronous calls in JavaScript. Everyone who learns JavaScript has heard about the so-called callback hell.  However, I won’t be writing about this because callbacks aren’t the main focus of this post.
+
+function caserUpper(val) {
+  return new Promise((resolve, reject) => {
+    resolve(val.toUpperCase());
+  });
+}
+
+async function msg(x) {
+  try {
+    const msg = await caserUpper(x);
+    console.log(msg);
+  } catch(err) {
+    console.log('Ohh no:', err.message);
+  }
+}
+
+msg('Hello'); // HELLO
+msg(34); // Ohh no: val.toUpperCase is not a function
+
+
+
 
