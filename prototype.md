@@ -224,3 +224,39 @@ console.log(person2.friends)//Output: "Jadeja, Vijay"
 Here as we have wanted each object to have their own name, age, and friends property. Hence, we have defined these properties inside the constructor using this. However, as sayName is defined on the prototype object, it will be shared among all the objects.
 
 
+For More Understanding https://medium.com/better-programming/prototypes-in-javascript-5bba2990e04b
+
+
+
+**************Prototype Chaining
+
+Prototype chaining means an object’s dunder proto or proto property will point to another object instead of pointing to the constructor function prototype. If the other object’s dunder proto or proto property points to another object it will result in the chain. This is called Prototype Chaining.
+
+
+Problems with prototype chaining
+As all the properties of the super type prototype are shared among the child objects, if one child modifies the property of the super type prototype, other children also get affected. This
+
+function foo(name){
+    this.name = name
+}
+
+foo.prototype.myName = function(){
+
+    return "foo return" `${this.name}`; 
+}
+
+function bar(name,label){
+       foo.call(this,name);
+       this.label = label;
+} 
+
+bar.prototype = Object.create(foo.prototype);
+
+bar.prototype.myLabel = function(){
+    return "foo return" `${this.label}`; 
+}
+
+var a = new bar();
+a.myName();
+a.myLabel();
+
