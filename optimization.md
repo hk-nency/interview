@@ -1,3 +1,5 @@
+read browser rendering from notebook
+
 
 Critical Rendering Path--
 
