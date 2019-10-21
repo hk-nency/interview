@@ -176,3 +176,22 @@ When new elements are added to the UI, a virtual DOM, which is represented as a 
 Once this is done, the virtual DOM calculates the best possible method to make these changes to the real DOM. This ensures that there are minimal operations on the real DOM. Hence, reducing the performance cost of updating the real DOM.
 
 
+
+####Repaint
+As the name suggests repaint is nothing but the repainting element on the screen as the skin of element change which affects the visibility of an element but do not affects layout.
+Example.
+1. Changing visibility of an element.
+2. Changing outline of the element.
+3. Changing background.
+Would trigger a repaint.
+According to Opera, the repaint is an expensive operation as it forces the browser to verify/check visibility of all other dom nodes.
+
+
+####Reflow
+Reflow means re-calculating the positions and geometries of elements in the document, for the purpose of re-rendering part or all of the document. Because reflow is a user-blocking operation in the browser, it is useful for developers to understand how to improve reflow time and also to understand the effects of various document properties (DOM depth, CSS rule efficiency, different types of style changes) on reflow time. Sometimes reflowing a single element in the document may require reflowing its parent elements and also any elements which follow it.
+
+
+What makes React’s virtual DOM so fast?
+React doesn’t really do anything new. It’s just a strategic move. What it does is It stores a replica of real DOM in memory. When you modify the DOM, it first applies these changes to the in-memory DOM. Then, using it’s diffing algorithm, figures out what has really changed.
+Finally, it batches the changes and call applies them on real-dom in one go. Thus, minimizing the re-flow and re-paint.
+
