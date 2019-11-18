@@ -71,7 +71,36 @@ document.querySelector('.box-1').addEventListener('click', e => {
 });
 
 
+Event Order
 
+first capturing and then bubbling
+
+
+exmaple - https://stackoverflow.com/questions/4616694/what-is-event-bubbling-and-capturing
+
+------StopPropagation
+
+ 1. event.stopPropagation() :  Whenever a event is raised, event will propagate or bubble up till the window object level.
+
+Ex: Parent Div containing a Child Div and both are registered for click events. When Child Div clicked , event handlers for both Child Div and Parent Div will be fired.
+
+Click here for demo
+
+To avoid the event bubbling  to top level DOM hierarchy , use the event.stopPropagation().
+
+Click here for demo
+
+-------StopImmediatePropagation
+
+2. event.stopImmediatePropagation(): The event handlers will be called in the order they have registered. Lets say for a Div element click event is registered from different places. Then when the  Div element is clicked, the click event handler will be fired in all the places.
+
+Since event.stopPropagation() will only stop event propagation to parent level and  not at the same element level, so to avoid the event firing at multiple places  we have to use event.stopImmediatePropagation().
+
+
+-----event.preventDefault()
+
+
+Prevents the browsers default behaviour (such as opening a link), but does not stop the event from bubbling up the DOM.
 
 
 
