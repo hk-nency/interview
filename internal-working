@@ -9,3 +9,24 @@ For example, the tree for var a = 2; might start with a top-level node called Va
 3.Code Generation: taking an AST and turning it into executable code. This part varies greatly depending on the language, the platform it's targeting, etc.
 
 The JS engine takes our above described AST for var a = 2; and turns it into a set of machine instructions to actually create a variable called a (including reserving memory, etc.), and then store a value into a.
+
+
+Parser
+
+
+The first thing that happens within the JavaScript engine is parsing of our code by parser.
+A parser basically reads our code line by line and checks it for errors and stops execution if any, if the code is free of syntactic errors, the parser produces a data structure called abstract syntax tree, which is then translated to machine code and thus results to output.
+
+Abstract syntax tree (AST), or just syntax tree, is a tree representation of the abstract syntactic structure of source code written in a programming language. Each node of the tree denotes a construct occurring in the source code — Wikipedia
+
+
+To understand JavaScript code execution, we need to go through and understand two important concepts execution context and execution stack.
+
+Execution Context:
+The environment in which our code runs is known as execution context and is defined as one of the following
+1. Global — Default environment where code is executed first time.
+2. Local/ Function — When the code within the function gets executed.
+3. Eval — when the text within the eval gets executed.
+
+Execution Stack:
+
