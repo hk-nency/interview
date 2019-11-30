@@ -277,3 +277,17 @@ https://stackoverflow.com/questions/57725/how-can-i-display-just-a-portion-of-an
 57. Middelware design pattern: https://gist.github.com/darrenscerri/5c3b3dcbe4d370435cfa
 58. Develop progress bar component
 59. Web components, npm modules
+60. var greet = 'Hello!'
+
+function changeGreet () {
+  greet = 'Hey!'
+  return
+  function greet () {}
+}
+
+console.log('1: ', greet)
+changeGreet()
+console.log('2: ', greet)
+
+// 1: Hello!
+// 2: Hello!
