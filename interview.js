@@ -34,6 +34,22 @@ Function.prototype.bind = function() {
 
 3. Flat an n level array - [[1, 2], [[3], [4]], 5] should return [1, 2, 3, 4, 5]
 
+var a =  [[1, 2], [[3], [4]], 5];
+
+function flatten(arr) {
+  return [].concat(...arr)
+}
+function deepFlatten(arr) {
+  return flatten(           // return shalowly flattened array
+    arr.map(x=>             // with each x in array
+      Array.isArray(x)      // is x an array?
+        ? deepFlatten(x)    // if yes, return deeply flattened x
+        : x                 // if no, return just x
+    )
+  )
+}
+var b = deepFlatten(a);
+
 4. Implement curry function:
 
 var temp = curry(avg, 1, 2, 3);
