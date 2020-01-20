@@ -291,3 +291,8 @@ console.log('2: ', greet)
 
 // 1: Hello!
 // 2: Hello!
+
+61. difference b/w application server and web server : https://stackoverflow.com/questions/936197/what-is-the-difference-between-application-server-and-web-server
+62. Rest design pattern
+63. caching of js and css files on the web : 
+64. serviceworkers and the use: https://medium.com/commencis/what-is-service-worker-4f8dc478f0b9
